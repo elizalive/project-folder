@@ -48,8 +48,6 @@
                            .domain([0, d3.max(dataset, function(d) {return d[1]; })])
                            .range([2, 5]);
 
-            var formatAsPercentage = d3.format(".1%");
-
             //Define Y axis
             var yAxis = d3.svg.axis()
                               .scale(yScale)
@@ -61,8 +59,6 @@
                               .scale(xScale)
                               .orient("bottom")
                               .ticks(5); //Set rough # of ticks
-
-            xAxis.tickFormat(formatAsPercentage);
 
             //Create SVG element
             var svg = d3.select("body")

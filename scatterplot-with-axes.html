@@ -26,16 +26,11 @@
 
             var padding = 30;
 
-            var dataset = [];
-            var numDataPoints = 50;
-            var xRange = Math.random() * 1000;
-            var yRange = Math.random() * 1000;
-            for (var i = 0; i < numDataPoints; i++) {
-                var newNumber1 = Math.floor(Math.random() * xRange);
-                var newNumber2 = Math.floor(Math.random() * yRange);
-                dataset.push([newNumber1, newNumber2]);
-            }
-
+            var dataset = [ 
+                            [5, 20], [480, 90], [250, 50], [100, 33], [330, 95],
+                            [410, 12], [475, 44], [25, 67], [85, 21], [220, 88],
+                            [600, 150]
+                          ];
             //Create scale functions
             var xScale = d3.scale.linear()
                                  .domain([0, d3.max(dataset, function(d) {return d[0]; })])
@@ -48,8 +43,6 @@
                            .domain([0, d3.max(dataset, function(d) {return d[1]; })])
                            .range([2, 5]);
 
-            var formatAsPercentage = d3.format(".1%");
-
             //Define Y axis
             var yAxis = d3.svg.axis()
                               .scale(yScale)
@@ -61,8 +54,6 @@
                               .scale(xScale)
                               .orient("bottom")
                               .ticks(5); //Set rough # of ticks
-
-            xAxis.tickFormat(formatAsPercentage);
 
             //Create SVG element
             var svg = d3.select("body")
@@ -85,7 +76,6 @@
                     return rScale(d[1]);
                });
 
-             /*  
             //Create labels
             svg.selectAll("text")
                .data(dataset)
@@ -103,7 +93,6 @@
                .attr("font-family", "sans-serif")
                .attr("font-size", "11px")
                .attr("fill", "red");
-               */
 
 
             //Create X axis
