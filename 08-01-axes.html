@@ -5,17 +5,7 @@
 		<title>D3: A simple, unstyled axis</title>
 		<script type="text/javascript" src="../d3/d3.js"></script>
 		<style type="text/css">
-			.axis path,
-			.axis line {
-				fill: none;
-				stroke: black;
-				shape-rendering: crispEdges;
-			}
-
-			.axis text {
-				font-family: sans-serif;
-				font-size: 11px;
-			}
+			/* No style rules here yet */
 		</style>
 	</head>
 	<body>
@@ -91,9 +81,7 @@
 
 		//Create X axis
 		svg.append("g")
-			.attr("class", "axis") //Assign "axis" class
-			.attr("transform", "translate(0," + (h - padding) + ")")
-			.call(xAxis);
+		   .call(xAxis);
 
 		</script>
 	</body>
